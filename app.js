@@ -1,3 +1,10 @@
+const mongoose = require('mongoose');
+const dbURI = 'mongodb+srv://tester:test@kalender-cluster.qqac8qh.mongodb.net/?retryWrites=true&w=majority'
+
+mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log('Connected to the database'))
+  .catch((err) => console.error('Error connecting to the database:', err));
+
 const express = require("express")
 const app = express()
 
