@@ -32,17 +32,6 @@ formInput.addEventListener('submit', async (e) => {
     const answer = formInput.answer.value;
     const date = Number(currentUrl[2]);
     
-    try {
-        const res = await fetch(`/december`, { 
-            method: 'POST', 
-            body: JSON.stringify({ email, answer, date }),
-            headers: {'Content-Type': 'application/json'}
-        });
-        }catch(err){
-            console.log(err)
-        }
-
-    // Change text after 1 second
     setTimeout(() => {
         formStatus.innerText = "Submitted data";
 
@@ -54,6 +43,18 @@ formInput.addEventListener('submit', async (e) => {
         }, 500);
 
     }, 0);
+    
+    try {
+        const res = await fetch(`/december`, { 
+            method: 'POST', 
+            body: JSON.stringify({ email, answer, date }),
+            headers: {'Content-Type': 'application/json'}
+        });
+        }catch(err){
+            console.log(err)
+        }
+
+    // Change text after 1 second
 });
 
 
