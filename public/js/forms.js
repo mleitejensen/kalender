@@ -28,11 +28,12 @@ formInput.addEventListener('submit', async (e) => {
 
     const email = formInput.email.value;
     const answer = formInput.answer.value;
+    const date = Number(currentUrl[2])
 
     try {
-    const res = await fetch('/december/1', { 
+    const res = await fetch(`/december`, { 
         method: 'POST', 
-        body: JSON.stringify({ email, answer }),
+        body: JSON.stringify({ email, answer, date }),
         headers: {'Content-Type': 'application/json'}
     });
     }catch(err){

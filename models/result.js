@@ -2,12 +2,17 @@ const mongoose = require('mongoose');
 
 // Define the schema
 const resultSchema = new mongoose.Schema({
-  name: {
+  email: {
     type: String,
-    required: true
+    required: true,
+    unique: true
   },
   answer: {
     type: String,
+    required: true
+  },
+  date: {
+    type: Number,
     required: true
   }
 });
