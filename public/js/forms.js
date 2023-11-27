@@ -9,6 +9,7 @@ html = `<form>
 <label for="answer">Skriv svaret ditt her</label><br>
 <input type="text" for="answer" id="answer"><br><br>
 <input type="submit" value="Send inn">
+<p id = "form-status"> </p>
 </form>`
 
 form.innerHTML = html
@@ -21,25 +22,30 @@ body.innerHTML += `
 const left = document.querySelector(".clickLeft")
 const right = document.querySelector(".clickRight")
 const formInput = document.querySelector("form")
+const formStatus = document.getElementById("form-status")
 
 console.log(formInput)
 formInput.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    const email = formInput.email.value;
-    const answer = formInput.answer.value;
-    const date = Number(currentUrl[2])
+    let email = formInput.email.value;
+    let answer = formInput.answer.value;
+    const date = Number(currentUrl[2]);
 
-    try {
-    const res = await fetch(`/december`, { 
-        method: 'POST', 
-        body: JSON.stringify({ email, answer, date }),
-        headers: {'Content-Type': 'application/json'}
-    });
-    }catch(err){
-        console.log(err)
-    }
-})
+    // Change text after 1 second
+    setTimeout(() => {
+        formStatus.innerText = "Submitted data";
+
+        // Make the text go blank and clear input fields after another second
+        setTimeout(() => {
+            formStatus.innerText = "";
+            formInput.email.value = "";
+            formInput.answer.value = "";
+        }, 500);
+
+    }, 0);
+});
+
 
 
 if(currentUrl[2] == 1){
