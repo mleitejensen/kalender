@@ -1,9 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
-    var gridContainer = document.getElementById('grid-container');
-    var progressContainer = document.getElementById('progress-container');
     var progressBar = document.getElementById('progress-bar');
     var dateDisplay = document.getElementById('date-display');
     var percentageDisplay = document.getElementById('percentage'); // New line
+
+    // Logg test
+    console.log("im loaded");
 
     // Get the current date
     var currentDate = new Date();
@@ -13,6 +14,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Calculate progress percentage
     var progressPercentage = (currentDayInDecember / 24) * 100;
+
+    // Limit progress to 100%
+    if (progressPercentage > 100) {
+        progressPercentage = 100;
+    }
+
     progressBar.style.width = progressPercentage + '%';
 
     // Display the date
