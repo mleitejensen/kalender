@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', function() {
     var currentDayInDecember = new Date().getDate();
 
     document.addEventListener('keyup', function(e) {
-        console.log("Key released:", e.key);
 
         // Check if the focused element is an input field
         if (document.activeElement.tagName.toLowerCase() === 'input') {
