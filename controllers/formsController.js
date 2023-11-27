@@ -3,8 +3,9 @@ module.exports.form_get = async (req, res) => {
 }
 
 module.exports.form_post = async (req, res) => {
-    const { email, answer } = req.body;
+    console.log(req.body)
+    //const { email, answer } = req.body;
 
-    console.log("email:", email, "answer:",answer);
-    res.send("new post request");
+    //console.log("email:", email, "answer:",answer);
+    res.send("Sendt post request");
 }

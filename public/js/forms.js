@@ -1,11 +1,13 @@
 let form = document.querySelector(".form")
 const body = document.querySelector("body")
+let currentDate = new Date()
+let currentUrl = window.location.pathname.split('/')
 
 html = `<form>
-<label for="name">Skriv navnet ditt her</label><br>
-<input type="text" for="name"><br><br>
+<label for="email">Skriv navnet ditt her</label><br>
+<input type="email" id="email" for="email"><br><br>
 <label for="answer">Skriv svaret ditt her</label><br>
-<input type="text" for="answer"><br><br>
+<input type="text" for="answer" id="answer"><br><br>
 <input type="submit" value="Send inn">
 </form>`
 
@@ -18,9 +20,26 @@ body.innerHTML += `
 
 const left = document.querySelector(".clickLeft")
 const right = document.querySelector(".clickRight")
+const formInput = document.querySelector("form")
 
-let currentDate = new Date()
-let currentUrl = window.location.pathname.split('/')
+console.log(formInput)
+formInput.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const email = formInput.email.value;
+    const answer = formInput.answer.value;
+
+    try {
+    const res = await fetch('/december/1', { 
+        method: 'POST', 
+        body: JSON.stringify({ email, answer }),
+        headers: {'Content-Type': 'application/json'}
+    });
+    }catch(err){
+        console.log(err)
+    }
+})
+
 
 if(currentUrl[2] == 1){
     console.log("start")
