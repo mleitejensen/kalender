@@ -28,9 +28,19 @@ console.log(formInput)
 formInput.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    let email = formInput.email.value;
-    let answer = formInput.answer.value;
+    const email = formInput.email.value;
+    const answer = formInput.answer.value;
     const date = Number(currentUrl[2]);
+    
+    try {
+        const res = await fetch(`/december`, { 
+            method: 'POST', 
+            body: JSON.stringify({ email, answer, date }),
+            headers: {'Content-Type': 'application/json'}
+        });
+        }catch(err){
+            console.log(err)
+        }
 
     // Change text after 1 second
     setTimeout(() => {
