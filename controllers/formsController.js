@@ -1,7 +1,10 @@
 module.exports.form_get = async (req, res) => {
-    res.render('index');
+    res.redirect("/december/1")
 }
 
 module.exports.form_post = async (req, res) => {
-    res.send('new forms post');
+    const { email, answer } = req.body;
+
+    console.log("email:", email, "answer:",answer);
+    res.send("new post request");
 }

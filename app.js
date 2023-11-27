@@ -11,14 +11,13 @@ mongoose.connect(dbURI, {})
 
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + '/public/'));
+app.use(express.json());
 
 app.listen(3000, "0.0.0.0" , () => {
     console.log('Server running on port 3000')
 })
 
-app.get('/', function (req, res) {
-    res.render('index');
-});
+app.get('/', (req, res) => res.render('index'));
 
 app.get('/december/:date', function(req, res) {
     const date = req.params.date

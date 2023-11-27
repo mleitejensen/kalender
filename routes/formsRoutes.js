@@ -3,8 +3,8 @@ const authController = require('../controllers/formsController');
 
 const router = Router();
 
-router.get('/forms', authController.form_get);
-router.post('/forms', authController.form_post);
+router.get('/december', authController.form_get);
+router.post('/december/1', authController.form_post);
 
 
 module.exports = router;
