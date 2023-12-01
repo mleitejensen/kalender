@@ -5,7 +5,6 @@ const resultSchema = new mongoose.Schema({
   email: {
     type: String,
     required: true,
-    unique: true
   },
   answer: {
     type: String,
@@ -13,10 +12,11 @@ const resultSchema = new mongoose.Schema({
   },
   date: {
     type: Number,
-    required: true
+    required: true,
   }
 });
 
+resultSchema.index({ email: 1, date: 1 }, { unique: true});
 // Create the model
 const Result = mongoose.model('Result', resultSchema);
 
