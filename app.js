@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const dbURI = 'mongodb+srv://tester:test@kalender-cluster.qqac8qh.mongodb.net/?retryWrites=true&w=majority'
 const formsRoutes = require('./routes/formsRoutes');
 
-mongoose.connect(dbURI,)
+mongoose.connect(dbURI, {autoIndex: true})
   .then(() => console.log('Connected to the database'))
   .catch((err) => console.error('Error connecting to the database:', err));
 
